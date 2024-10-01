@@ -5,23 +5,64 @@
     <title>Scope Tests</title>
 </head>
 <body>
-    <script>
+<script>
 
-        const test = x => document.writeln( String(x));
+    const test = x => document.writeln(String(x));
 
-        let x = 0;
-        function foo() {
-            let x = 1;
-            document.writeln(String(x));
-        }
-        foo();
-        document.writeln(String(x));
+    // let x = 0;
+    // function fooX() {
+    //     let x = 1;
+    //     document.writeln(String(x)); // 1
+    // }
+    // fooX();
+    // document.writeln(String(x)); // 0
+    //
+    // y= 0;
+    // function fooY() {
+    //     y = 1;
+    //     document.writeln(String(x)); // 1
+    // }
+    // fooY();
+    // document.writeln(String(x)); // 1
+    //
+    // var z = 0;
+    // function foo() {
+    //     z = 1;
+    //     document.writeln(String(z)); // 0
+    // }
+    // foo();
+    // document.writeln(String(z)); // 0
+    //
+    // var a = 0;
+    // function fooA() {
+    //     // declared here -> var a;
+    //     document.writeln(String(a)); // 0
+    //     var a = 1;
+    // }
+    // fooA();
+    // document.writeln(String(a)); // 0
+    //
+    // let b = 0;
+    // // function expression, immediate execution
+    // // don't want to leak my variables
+    // // IIFE (immediately invoked function expression)
+    // (() =>  {
+    //     var b = 1;
+    //     document.writeln(String(b))
+    // })();
+    //
+    // document.writeln(String(b));
 
-        // test( id(id) === id);
-        // test( Konst(id)(undefined) === id);
-        // test( Kite(undefined)(id) === id);
+    const id = x => x;
+    const Konst = id => x => id;
 
-    </script>
+    const Kite = x => y => y;
+
+    test(id(id) === id);
+    test(Konst(id)(undefined) === id);
+    test(Kite(undefined)(id) === id);
+
+</script>
 </body>
 </html>
 
